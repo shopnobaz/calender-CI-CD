@@ -29,5 +29,5 @@ jobs:
     - run: npm run init-adm
     - run: npm run init-sds
     - run: npm install -g pm2
-    - run: Pm2 start "npm run dev"
-    - run: pm2 start "npm run cy-test"
+    - run: npm run dev"
+    - run: npm run cy-test"
