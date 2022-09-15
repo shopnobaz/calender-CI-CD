@@ -24,8 +24,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm install -g newman
-    - run: npm run init-adm
-    - run: npm run init-sds 
+
+    - run: cd admin && npm install && vite build"
+    - run: cd schedule-data-service && npm install
     - run: npm install -g pm2 
     - run: pm2 start "npm run dev"
     - run: npm run init-postman 
