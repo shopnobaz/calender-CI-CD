@@ -2,7 +2,7 @@ name: Run Cypress
 
 on:
   push:
-    branches: [dev]
+    branches: [test]
  
 
 jobs:
