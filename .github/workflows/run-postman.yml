@@ -4,7 +4,6 @@ on:
   push:
     branches: [dev]
  
-
 jobs:
 
   api-test:
@@ -31,4 +30,4 @@ jobs:
       # install newman globally so we can run
       # postman collections
       # run our api tests
-    - run: npm run init-sds & npm run init-postman
+    - run: npm run init-sds & npm run init-postman 
