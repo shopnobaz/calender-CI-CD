@@ -17,6 +17,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^12.2.0",
     "archiver": "^5.2.0",
+    "better-sqlite3": "^7.6.2",
     "compression": "^1.7.4",
     "express": "^4.18.1",
     "express-session": "^1.17.1",
