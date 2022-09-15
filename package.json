@@ -9,7 +9,7 @@
     "init-sds": "cd schedule-data-service && npm install",
     "init-adm": "cd admin && npm install && vite build",
     "cy-test": "npx cypress open",
-    "init-postman": "cd test-rest-api && newman run teacher_newman.json"
+    "init-postman": "newman run test-rest-api/teacher_newman.json"
   },
   "keywords": [],
   "author": "",
