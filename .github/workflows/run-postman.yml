@@ -23,13 +23,14 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    - run: npm run init-adm
     - run: npm install -g pm2 
     - run: pm2 start "npm run dev"
     # run the npm build command (not used in our project)
     
-       # install pm2 so we can run our node.js
+      # install pm2 so we can run our node.js
       # based backend without blocking the terminal
-    - run: npm run init-adm
+    
       # install newman globally so we can run
       # postman collections
       # run our api tests
