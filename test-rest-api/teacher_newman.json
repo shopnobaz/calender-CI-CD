@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "9a8511ca-8ebb-440b-9fd9-1fcbf71eee89",
+		"name": "Teacher_CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6442386"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\" : \"exempel@nodehill.com\",\r\n\"password\": \"abc123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7666/data/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7666",
+					"path": [
+						"data",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Teacher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7666/data/teachers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7666",
+					"path": [
+						"data",
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_A_Teacher",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"firstname\",'{{$randomFirstName}}')\r",
+							"pm.environment.set(\"lastname\",'{{$randomLastName}}')\r",
+							"pm.environment.set(\"initials\",'{{$randomCountryCode}}')\r",
+							"pm.environment.set(\"phone\",'{{$randomPhoneNumber}}')\r",
+							"pm.environment.set(\"email\",'{{$randomEmail}}')\r",
+							"pm.environment.set(\"color\",'{{$randomColor}}')\r",
+							"pm.environment.set(\"password\",'{{$randomCreditCardMask}}')\r",
+							"pm.collectionVariables.set (\"randomNum\", _.random (0,1));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonResponse=pm.response.json();\r",
+							"pm.globals.set(\"few_last_id_table\", jsonResponse.lastInsertRowid);\r",
+							"//console.log(pm.globals.get('few_last_id_table'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"firstname\":\"{{$randomFirstName}}\",\r\n\"lastname\":\"{{$randomLastName}}\",\r\n\"initials\":\"{{$randomCountryCode}}\",\r\n\"phone\":\"{{$randomPhoneNumber}}\",\r\n\"email\":\"{{$randomEmail}}\",\r\n\"color\": \"{{$randomColor}}\",\r\n\"hide\":\"{{randomNum}}\",\r\n\"password\":\"{{$randomCreditCardMask}}\",\r\n\"roles\":\"teacher\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7666/data/teachers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7666",
+					"path": [
+						"data",
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Teacher_Last_ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7666/data/teachers/{{few_last_id_table}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7666",
+					"path": [
+						"data",
+						"teachers",
+						"{{few_last_id_table}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "hide",
+			"value": ""
+		},
+		{
+			"key": "randomNum",
+			"value": ""
+		}
+	]
+}
