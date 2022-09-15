@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cd schedule-data-service && node index",
-    "init-sds": "cd schedule-data-service && npm i better-sqlite3 && node index",
+    "init-sds": "cd schedule-data-service && npm install",
     "init-adm": "cd admin && npm install && vite build",
     "cy-test": "npx cypress open",
     "init-postman": "cd test-rest-api && npm install -g newman && newman run teacher_newman.json"
