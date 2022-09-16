@@ -31,3 +31,4 @@ jobs:
 
       - name: Restart app 
         run: ssh dev 'pm2 restart test_run'        
+  
