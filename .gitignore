@@ -104,4 +104,4 @@ dist
 .tern-port
 
 .idea/
-schedule-data-service/database/nodehill_schedule.db
+#schedule-data-service/database/nodehill_schedule.db
