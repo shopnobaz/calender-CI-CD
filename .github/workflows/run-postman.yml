@@ -26,8 +26,8 @@ jobs:
     - run: cd schedule-data-service && npm install
     - run: cd admin && npm install
     - run: cd admin && npm run build
-    - run: cd schedule-data-service && npm install
-    - run: npm run dev 
+    - run: cd schedule-data-service && npm install 
+    - run: cd schedule-data-service && node index
     - run: newman run test-rest-api/Teacher_CRUD.postman_collection.json
   
    
