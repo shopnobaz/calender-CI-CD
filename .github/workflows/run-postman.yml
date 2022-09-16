@@ -23,10 +23,11 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm install -g newman
-    - run: npm install -g pm2 
     - run: cd schedule-data-service && npm install
-    - run: cd admin && npm install && npm run build
-    - run: pm2 start "npm run dev"
+    - run: cd admin && npm install
+    - run: cd admin && npm run build
+    - run: cd schedule-data-service && npm install
+    - run: npm run dev 
     - run: newman run test-rest-api/Teacher_CRUD.postman_collection.json
   
    
