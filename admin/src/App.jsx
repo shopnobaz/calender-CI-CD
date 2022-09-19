@@ -1,8 +1,6 @@
 // in src/App.js
 import * as React from "react";
 import { Admin, Resource, EditGuesser } from 'react-admin';
-import { PostList, PostEdit, PostCreate } from './posts';
-import { UserList } from './users';
 import { TeacherList, TeacherCreate, TeacherEdit } from './teachers';
 import { SchoolList, SchoolCreate, SchoolEdit } from './schools';
 import { ClassList, ClassCreate, ClassEdit } from './classes';
@@ -22,8 +20,6 @@ const dataProvider = simpleRestProvider('/data');
 
 const App = () => (
   <Admin dashboard={Dashboard} dataProvider={dataProvider}>
-    <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-    <Resource name="users" list={UserList} icon={UserIcon} />
     <Resource name="teachers" list={TeacherList} edit={TeacherEdit} create={TeacherCreate} icon={SchoolIcon} />
     <Resource name="schools" list={SchoolList} edit={SchoolEdit} create={SchoolCreate} icon={ApartmentRounded} />
     <Resource name="classes" list={ClassList} edit={ClassEdit} create={ClassCreate} icon={PostIcon} />
