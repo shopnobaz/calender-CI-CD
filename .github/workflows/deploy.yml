@@ -29,7 +29,7 @@ jobs:
     - run: newman run test-rest-api/Teacher_CRUD.postman_collection.json
 
 
-
+   
   deploy:
     name: "Deploy dev to dev"
     needs: [api-test]
