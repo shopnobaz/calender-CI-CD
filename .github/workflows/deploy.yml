@@ -28,7 +28,7 @@ api-test:
     - run: cd schedule-data-service && pm2 start "node index"
     - run: newman run test-rest-api/Teacher_CRUD.postman_collection.json
 
-  deploy:
+deploy:
     name: "Deploy dev to dev"
     needs: [cypress-test]
     runs-on: ubuntu-latest
