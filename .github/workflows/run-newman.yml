@@ -2,7 +2,7 @@ name: Run Newman
 
 on:
   push:
-    branches: [test]
+    branches: [disabled]
  
 jobs:
 
