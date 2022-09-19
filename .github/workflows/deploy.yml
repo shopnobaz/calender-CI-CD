@@ -3,8 +3,7 @@ on:
   push:
     branches: [test]
 jobs:
-
-api-test:
+  api-test:
 
     runs-on: ubuntu-latest
 
@@ -27,7 +26,6 @@ api-test:
     - run: npm install -g pm2
     - run: cd schedule-data-service && pm2 start "node index"
     - run: newman run test-rest-api/Teacher_CRUD.postman_collection.json
-
 deploy:
     name: "Deploy dev to dev"
     needs: [cypress-test]
@@ -56,7 +54,7 @@ deploy:
         run: ssh dev 'cd test/ && git fetch && git pull origin test && npm install'
 
       - name: Restart app 
-        run: ssh dev 'pm2 restart test_run'        
+        run: ssh dev 'pm2 restart test_run'    
 
  
               
